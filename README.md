@@ -60,8 +60,10 @@ Set Frame Rate to 29.97 (NTSC)
 
 You should be up and running!
 
-## Troubleshooting
+## Troubleshooting/Issues
 
-The easiest way to troubleshoot is with `dmesg`, primarily for sound issues.
+>`dmesg` shows: `gvusb2-snd 3-2:1.2: cannont find the slot for index 0 (range 0-X), error: -16` You probably didn't set the correct `mainIndex` number, or didn't set one at all (it will default to 0). There is a pull request on the original's main branch from LeetLeaf that auto selects an ALSA Id, may contact them about that.
 
-If you see something similar to: `gvusb2-snd 3-2:1.2: cannont find the slot for index 0 (range 0-X), error: -16`, you probably didn't set the correct `mainIndex` number, or didn't set one at all (it will default to 0).
+>Occasional audio drop outs. This could be due to the driver, audio desync or something else in the audio stack. Looking into it (maybe).
+
+>Video is just a bunch of gray blocks when i turn on a device. Restart the capture stream in VLC. Something to do with too much signal. I think this can happen on windows too.
