@@ -61,7 +61,7 @@ Set Frame Rate to 29.97 (NTSC)
 
 You should be up and running!
 
-###Troubleshooting
+### Troubleshooting
 
 The easiest way to troubleshoot is with `dmesg`, primarily for sound issues.
 
