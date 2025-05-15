@@ -13,21 +13,20 @@ Run: `sudo apt update && sudo apt install build-essential linux-headers-$(uname 
 
 Next, compile the drivers. They will have a few error/warning messages. This is fine (feature).
 
-```
-make clean
-
-make
-```
+Run: `make`
 
 Next, test run the drivers. This can be done using `insmod`
 
-Video:
-`sudo insmod gvusb2-video.ko`
+#### Video:
 
-Audio (few more steps):
+Run: `sudo insmod gvusb2-video.ko`
+
+#### Audio (few more steps):
 
 First, check your audio devices
-`cat /proc/asound/cards`
+
+Run:`cat /proc/asound/cards`
+
 Find the highest number, then add 1. This will be your sound card number when we install the sound driver.
 Example:
 
@@ -45,13 +44,13 @@ In this instance, the highest number is 1, so we would enter 2.
 
 We then install the driver like so, using our special number:
 
-`sudo insmod gvusb2-sound.ko mainIndex=2`
+run: `sudo insmod gvusb2-sound.ko mainIndex=2`
 
-Both drivers should now be installed.
+Using `insmod` will only keep the drivers installed for this session. Once you reboot, you will need to run `insmod` like above. I'll add a small section for a permanent install in the future. 
 
-Test it:
+#### Test it:
 
-Open VLC (or any video player that can open a camera/capture device). 
+The easiest way to test is to use VLC.
 In VLC, set video device name to the highest option (`/dev/videoX` where x is a number).
 Set the audio device name to the same number we used earlier (`hw:2,0` in our example).
 
@@ -61,7 +60,7 @@ Set Frame Rate to 29.97 (NTSC)
 
 You should be up and running!
 
-### Troubleshooting
+## Troubleshooting
 
 The easiest way to troubleshoot is with `dmesg`, primarily for sound issues.
 
